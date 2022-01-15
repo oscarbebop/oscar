@@ -5549,12 +5549,59 @@ export enum _SystemDateTimeFieldVariation {
   Localization = 'localization'
 }
 
+export type MicroPostQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type MicroPostQuery = { __typename?: 'Query', microPost?: { __typename?: 'MicroPost', id: string, createdAt: any, title: string, content: { __typename?: 'MicroPostContentRichText', raw: any } } | null | undefined };
+
 export type MicroPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type MicroPostsQuery = { __typename?: 'Query', microPosts: Array<{ __typename?: 'MicroPost', id: string, title: string, slug: string, excerpt: string, createdAt: any }> };
 
 
+export const MicroPostDocument = gql`
+    query MicroPost($slug: String!) {
+  microPost(where: {slug: $slug}) {
+    id
+    createdAt
+    title
+    content {
+      raw
+    }
+  }
+}
+    `;
+
+/**
+ * __useMicroPostQuery__
+ *
+ * To run a query within a React component, call `useMicroPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMicroPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMicroPostQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useMicroPostQuery(baseOptions: Apollo.QueryHookOptions<MicroPostQuery, MicroPostQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MicroPostQuery, MicroPostQueryVariables>(MicroPostDocument, options);
+      }
+export function useMicroPostLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MicroPostQuery, MicroPostQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MicroPostQuery, MicroPostQueryVariables>(MicroPostDocument, options);
+        }
+export type MicroPostQueryHookResult = ReturnType<typeof useMicroPostQuery>;
+export type MicroPostLazyQueryHookResult = ReturnType<typeof useMicroPostLazyQuery>;
+export type MicroPostQueryResult = Apollo.QueryResult<MicroPostQuery, MicroPostQueryVariables>;
 export const MicroPostsDocument = gql`
     query MicroPosts {
   microPosts(orderBy: createdAt_DESC) {

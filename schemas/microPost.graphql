@@ -1,0 +1,10 @@
+query MicroPost($slug: String!) {
+  microPost(where: { slug: $slug }) {
+    id
+    createdAt
+    title
+    content {
+      raw
+    }
+  }
+}

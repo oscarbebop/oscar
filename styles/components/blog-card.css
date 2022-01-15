@@ -1,0 +1,17 @@
+.blog-card-container {
+  margin-bottom: 30px;
+}
+
+.blog-card-container h2 {
+  font-family: var(--font-alter);
+  font-size: 24px;
+}
+
+.blog-card-container p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.blog-card-container small {
+  color: #a1a1a1;
+}

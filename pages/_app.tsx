@@ -6,6 +6,8 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { Layout } from "design-system/layout/Layout";
+import "../styles/main.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const authLink = setContext((_, { headers }) => {
@@ -28,7 +30,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ApolloProvider client={client}>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ApolloProvider>
   );
 }

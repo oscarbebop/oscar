@@ -1,0 +1,15 @@
+/************* PT SERIF *****************/
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+
+/************* OPEN SANS ***************/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=PT+Serif&display=swap");
+
+:root {
+  /* fonts family */
+  --font: "Open Sans", sans-serif;
+  --font-alter: "PT Serif", serif;
+
+  /* weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+}

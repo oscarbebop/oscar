@@ -1,0 +1,10 @@
+/************* RESET ***************/
+@import "./reset.css";
+
+/********** TYPOGRAPHY *************/
+@import "./typography.css";
+
+/********** COMPONENTS *************/
+@import "./components/layout.css";
+@import "./components/blog-card.css";
+@import "./components/header.css";
