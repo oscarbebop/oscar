@@ -1,0 +1,9 @@
+query MicroPosts {
+  microPosts(orderBy: createdAt_DESC) {
+    id
+    title
+    slug
+    excerpt
+    createdAt
+  }
+}
