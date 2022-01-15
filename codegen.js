@@ -4,7 +4,7 @@ loadEnvConfig(process.cwd());
 module.exports = {
   overwrite: true,
   schema: process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT,
-  documents: null,
+  documents: "schemas/*.graphql",
   generates: {
     "generated/graphql.ts": {
       plugins: [
